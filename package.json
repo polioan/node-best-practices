@@ -1,0 +1,69 @@
+{
+  "name": "@polioan/node-best-practices",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ivan Polushin",
+    "url": "https://t.me/polioan"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polioan/node-best-practices"
+  },
+  "homepage": "https://github.com/polioan/node-best-practices#readme",
+  "bugs": {
+    "url": "https://github.com/polioan/node-best-practices/issues"
+  },
+  "funding": "https://boosty.to/polioan",
+  "keywords": [
+    "node",
+    "best practices"
+  ],
+  "description": "Checking best practices in one package",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=15"
+  },
+  "scripts": {
+    "build": "rollup --config rollup.config.js",
+    "prebuild": "rimraf dist",
+    "test:types": "tsc --noEmit",
+    "test": "npm run test:types",
+    "format": "prettier --write \"./**/*.{js,ts,cts,cjs,mjs,json,yml}\"",
+    "format:check": "prettier --check \"./**/*.{js,ts,cts,cjs,mjs,json,yml}\"",
+    "publish:dryrun": "npm publish --dry-run",
+    "check": "npm run format:check && npm run test && npm run publish:dryrun",
+    "pack": "rimraf pack && mkdir pack && npm pack --pack-destination pack"
+  },
+  "peerDependencies": {
+    "@types/node": "*"
+  },
+  "peerDependenciesMeta": {
+    "@types/node": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-typescript": "^11.1.3",
+    "@types/node": "^20.6.2",
+    "cross-env": "^7.0.3",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.29.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  }
+}
