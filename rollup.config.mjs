@@ -20,7 +20,7 @@ export default defineConfig([
     input,
     output: {
       format: 'esm',
-      file: 'dist/index.js',
+      file: 'dist/index.mjs',
     },
     plugins: [typescript({ tsconfig: './tsconfig.json' }), terser({})],
   },

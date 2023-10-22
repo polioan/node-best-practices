@@ -1,6 +1,6 @@
 {
   "name": "@polioan/node-best-practices",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": {
     "name": "Ivan Polushin",
     "url": "https://t.me/polioan"
@@ -23,9 +23,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "type": "module",
   "main": "dist/index.cjs",
-  "module": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -37,7 +36,7 @@
     "node": ">=15"
   },
   "scripts": {
-    "build": "rollup --config rollup.config.js",
+    "build": "rollup --config rollup.config.mjs",
     "prebuild": "rimraf dist",
     "test:types": "tsc --noEmit",
     "test": "npm run test:types",
